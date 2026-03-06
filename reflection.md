@@ -8,7 +8,8 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - List at least two concrete bugs you noticed at the start  
   (for example: "the secret number kept changing" or "the hints were backwards").
 
----
+--- The game looks fine until I started playing. The buttons are very buggy, sometimes it works, sometimes it doesn't. The hint of
+    is telling me the opposite of what it suppose to. The score was negative. The restart button doesn't reset the score. 
 
 ## 2. How did you use AI as a teammate?
 
