@@ -15,7 +15,6 @@ difficulty = st.sidebar.selectbox(
     ["Easy", "Normal", "Hard"],
     index=1,
 )
-#FIXME: The glitch is that the attempt limit is supposed to be based on the selected difficulty, but it actually uses a fixed attempt limit regardless of the difficulty, which can make the game too easy or too hard depending on the chosen difficulty level.
 attempt_limit_map = {
     "Easy": 6,
     "Normal": 8,
@@ -29,11 +28,10 @@ st.sidebar.caption(f"Range: {low} to {high}")
 st.sidebar.caption(f"Attempts allowed: {attempt_limit}")
 
 if "secret" not in st.session_state:
-    #FIXME: The glitch is that the secret number is supposed to be generated once per game, but it actually gets regenerated every time the app reruns, which can happen on every interaction, making it impossible to win by guessing.
     st.session_state.secret = random.randint(low, high)
 
 if "attempts" not in st.session_state:
-    st.session_state.attempts = 1
+    st.session_state.attempts = 0
 
 if "score" not in st.session_state:
     st.session_state.score = 0
@@ -43,11 +41,11 @@ if "status" not in st.session_state:
 
 if "history" not in st.session_state:
     st.session_state.history = []
-#FIXME: The glitch is that the history of guesses is supposed to show the raw input, but it actually shows the parsed integer guess, which can be confusing if the user entered something that was parsed differently (like "10.5" being parsed as 10).
+
 st.subheader("Make a guess")
 
 st.info(
-    f"Guess a number between 1 and 100. "
+    f"Guess a number between {low} and {high}. "
     f"Attempts left: {attempt_limit - st.session_state.attempts}"
 )
 
@@ -70,8 +68,6 @@ with col2:
     new_game = st.button("New Game 🔁")
 with col3:
     show_hint = st.checkbox("Show hint", value=True)
-#FIXME: The glitch is that the hint is supposed to be based on the actual guess and secret, but it actually gives a random hint that may not correspond to whether the guess is too high or too low, which can mislead the player.
-#FIXME: The glitch is that the game status is supposed to reset to "playing" when starting a new game, but it actually retains the previous status, which can lead to situations where you start a new game but the app still thinks you have won or lost the previous game, preventing you from playing the new game properly.
 if new_game:
     st.session_state.attempts = 0
     st.session_state.secret = random.randint(low, high)
