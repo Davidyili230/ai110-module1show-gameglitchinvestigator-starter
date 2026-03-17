@@ -39,23 +39,20 @@ def check_guess(guess, secret):
     outcome examples: "Win", "Too High", "Too Low"
     """
     if guess == secret:
-        return "Win"
+        return "Win", "🎉 Correct!"
 
     if guess > secret:
-        return "Too High"
+        return "Too High", "📉 Too high! Try a lower number."
     else:
-        return "Too Low"
+        return "Too Low", "📈 Too low! Try a higher number."
 
 
 def update_score(current_score: int, outcome: str, attempt_number: int):
     """Update score based on outcome and attempt number."""
     if outcome == "Win":
-        points = 100 - 10 * (attempt_number + 1)
+        points = 100 - 10 * attempt_number
         if points < 10:
             points = 10
         return current_score + points
-
-    if outcome in ("Too High", "Too Low"):
-        return current_score - 5
 
     return current_score

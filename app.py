@@ -74,7 +74,10 @@ with col3:
 #FIXME: The glitch is that the game status is supposed to reset to "playing" when starting a new game, but it actually retains the previous status, which can lead to situations where you start a new game but the app still thinks you have won or lost the previous game, preventing you from playing the new game properly.
 if new_game:
     st.session_state.attempts = 0
-    st.session_state.secret = random.randint(1, 100)
+    st.session_state.secret = random.randint(low, high)
+    st.session_state.score = 0
+    st.session_state.status = "playing"
+    st.session_state.history = []
     st.success("New game started.")
     st.rerun()
 
@@ -94,15 +97,9 @@ if submit:
         st.session_state.history.append(raw_guess)
         st.error(err)
     else:
-        #FIXME: The glitch is that the history is supposed to show the raw input, but it actually shows the parsed integer guess, which can be confusing if the user entered something that was parsed differently (like "10.5" being parsed as 10).
-        st.session_state.history.append(guess_int)
+        st.session_state.history.append(raw_guess)
 
-        if st.session_state.attempts % 2 == 0:
-            secret = str(st.session_state.secret)
-        else:
-            secret = st.session_state.secret
-
-        outcome, message = check_guess(guess_int, secret)
+        outcome, message = check_guess(guess_int, st.session_state.secret)
 
         if show_hint:
             st.warning(message)
