@@ -26,12 +26,16 @@ It wrote the code, ran away, and now the game is unplayable.
 ## 📝 Document Your Experience
 
 - [ ] Describe the game's purpose.
+--- Games purpose is to get high score from guessing the secret number from hints saying higher or lower
 - [ ] Detail which bugs you found.
+--- Bugs such as difficulty, hints, scores, etc...
 - [ ] Explain what fixes you applied.
+-- I marked out all the bugs as FIXME aand Claude helped me fix it all
 
 ## 📸 Demo
 
 - [ ] [Insert a screenshot of your fixed, winning game here]
+
 
 ## 🚀 Stretch Features
 

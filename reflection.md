@@ -20,8 +20,6 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
 --- Sometimes AI does more than I told, for example if I told AI to fix a specific part of the function. It would fix all the problem of the function.
 
----
-
 ## 3. Debugging and testing your fixes
 
 - How did you decide whether a bug was really fixed?
@@ -29,7 +27,8 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
   and what it showed you about your code.
 - Did AI help you design or understand any tests? How?
 
----
+--- I know bug is really fixed when I retry and have AI to check for other testing
+--- I ran using pytest, there was some errors with difficulties, scores and other bugs but AI was able to help organize my codes into correct files and modify the codes correctly.
 
 ## 4. What did you learn about Streamlit and state?
 
@@ -37,7 +36,9 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
 - What change did you make that finally gave the game a stable secret number?
 
----
+--- The secret number kept changing because Streamlit reruns the whole script every time you interact with the app, so random.randint kept generating a new number each time.
+--- Every time you click or type, Streamlit reruns the whole script. Regular variables reset, so you lose everything. Session state is like a sticky note that stays put across reruns.
+--- I added a check: if "secret" not in st.session_state before generating the number. That way it only gets created once.
 
 ## 5. Looking ahead: your developer habits
 
@@ -45,3 +46,7 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
   - This could be a testing habit, a prompting strategy, or a way you used Git.
 - What is one thing you would do differently next time you work with AI on a coding task?
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+
+--- I want to keep using pytest to check my fixes. It's faster than manually testing and catches things I would miss just by clicking around.
+--- Next time I would be more specific when asking AI to fix something so it doesn't change things I didn't ask about.
+--- This project made me realize AI code can look fine but still have logic bugs. I learned to always test it instead of just trusting it.
