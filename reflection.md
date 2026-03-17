@@ -14,8 +14,11 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 ## 2. How did you use AI as a teammate?
 
 - Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)?
+--- I used Claude on this project
 - Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
+--- I had a problem running the pytest, I described the issue and what it suppose to happen. Lastly, I send the error code. AI was able to figure out and the problem was that I need to import sys and os.
 - Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
+--- Sometimes AI does more than I told, for example if I told AI to fix a specific part of the function. It would fix all the problem of the function.
 
 ---
 
